@@ -1,23 +1,35 @@
 export declare namespace JSX {
     interface IntrinsicElements {
         [elemName: string]: any
-
-        /** Hi */
-        div: any
     }
+    type Element = string
 }
 
 type Factory<T> =
     (
         tag: T | string,
-        attr: { [key: string]: any },
-    ) => T
+        attr: {
+            [key: string]: any
+            children?: T | string | (T | string)[]
+        }
+    ) => T | string
 
-const jsx: Factory<string> =
-    (tag: string, att: any) => {
-        console.log(tag)
-        console.log(att)
-        return tag
+const jsx: Factory<(arg: any) => JSX.Element> =
+    (tag, att) => {
+        if (typeof tag == "function")
+            return tag(att)
+
+        if (typeof tag == "string") {
+            let { children } = att
+            if (!children) children = []
+            if (!Array.isArray(children)) children = [children]
+        
+            return ``
+                +`<${tag}>`
+                +`${children.join("")}`
+                +`<${tag}/>`
+        }
+        return ""
     }
 
 export {

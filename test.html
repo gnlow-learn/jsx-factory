@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<head>
+</head>
+<body>
+    <script type="importmap">
+        {
+            "imports": {
+                "codemirror": "https://esm.sh/v132/codemirror@6.0.1",
+                "@codemirror/lang-javascript": "https://esm.sh/v132/@codemirror/lang-javascript@6.2.1",
+                "@codemirror/view": "https://esm.sh/v132/@codemirror/view@6.19.0"
+            }
+        }
+    </script>
+    <script type="module">
+        //import {basicSetup, EditorView} from "codemirror"
+        const {basicSetup, EditorView} = await import("codemirror")
+        import {javascript} from "@codemirror/lang-javascript"
+
+        let editor = new EditorView({
+        extensions: [basicSetup, javascript()],
+        parent: document.body
+        })
+    </script>
+</body>
