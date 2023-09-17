@@ -4,6 +4,6 @@
         "jsxImportSource": "jsx"
     },
     "imports": {
-        "jsx/jsx-runtime": "./src/jsx.ts"
+        "jsx/jsx-runtime": "./src/jsx_lol.ts"
     }
 }
