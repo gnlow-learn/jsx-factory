@@ -1,3 +1,12 @@
+export declare namespace JSX {
+    interface IntrinsicElements {
+        [elemName: string]: any
+
+        /** Hi */
+        div: any
+    }
+}
+
 type Factory<T> =
     (
         tag: T | string,
