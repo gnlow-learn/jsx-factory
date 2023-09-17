@@ -14,4 +14,5 @@ const jsx: Factory<string> =
 export {
     jsx,
     jsx as jsxs,
+    jsx as Fragment,
 }
